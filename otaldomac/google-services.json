@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "679111305879",
+    "project_id": "hambre-c2422",
+    "storage_bucket": "hambre-c2422.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679111305879:android:f9884eb38d324306c457d2",
+        "android_client_info": {
+          "package_name": "br.labex.hambre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679111305879-m2a4d5pj7278jicvn3dfko7orqkr256k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.labex.hambre",
+            "certificate_hash": "0f6d3f505bb495805a6eb7bc58425a85bbd54f58"
+          }
+        },
+        {
+          "client_id": "679111305879-fqpvhvhmdfca7rf3bi34lkclhenqa6bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBmG_VesDJcLIx3X5NjuSpcAnnwbTktT8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679111305879-fqpvhvhmdfca7rf3bi34lkclhenqa6bv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
