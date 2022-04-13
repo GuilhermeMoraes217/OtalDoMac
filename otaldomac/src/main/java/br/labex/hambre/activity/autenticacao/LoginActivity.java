@@ -42,6 +42,13 @@ public class LoginActivity extends AppCompatActivity {
 
         configCliques();
         iniciacomponentes();
+
+        createRequest();
+
+    }
+
+    private void createRequest() {
+
     }
 
     private void configCliques(){

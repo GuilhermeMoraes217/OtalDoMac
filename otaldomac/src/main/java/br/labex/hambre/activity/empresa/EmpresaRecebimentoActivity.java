@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -231,7 +233,7 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
             if (!acessToken.isEmpty()) {
 
                 //ocultaTeclado();
-
+                ocultarTeclado();
                 empresa.setPublicKey(publicKey);
                 empresa.setAccessToken(acessToken);
                 empresa.salvar();
@@ -277,5 +279,11 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
         ib_salvar = findViewById(R.id.ib_Salvar);
         btnSalvar = findViewById(R.id.btnSalvar);
         progressBar = findViewById(R.id.progressBar);
+    }
+
+    private void ocultarTeclado(){
+        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
+                btnSalvar.getWindowToken(), 0
+        );
     }
 }

@@ -85,6 +85,7 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/bg_borda_arredondada.xml" value="0.1555" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/bg_btn2.xml" value="0.1555" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/bg_dialog_status.xml" value="0.1555" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/bg_edit2.xml" value="0.1555" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/bg_item_sacola.xml" value="0.1555" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/ic_add_red.xml" value="0.1555" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/drawable/ic_pagamento.xml" value="0.2425" />
@@ -96,10 +97,10 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_config.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_endereco.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_entregas.xml" value="0.2" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_finaliza_cadastro.xml" value="0.2" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_form_produtos.xml" value="0.2" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_finaliza_cadastro.xml" value="0.33" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_form_produtos.xml" value="0.22" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_home.xml" value="0.22" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_produtos_detalhes.xml" value="0.2" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_produtos_detalhes.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_empresa_recebimento.xml" value="0.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -120,7 +121,7 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/adapter_item_detalhe_pedido.xml" value="0.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/adapter_pedido_empresa.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/adapter_pedido_usuario.xml" value="0.33" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/adapter_produto_cardapio.xml" value="0.2" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/adapter_produto_cardapio.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/add_mais_item.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/bg_edit.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/bottom_sheet_item_carrinho.xml" value="0.33" />
@@ -128,7 +129,7 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/dialog_add_categoria.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/divisor.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/divisor2.xml" value="0.2" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/empresa_item.xml" value="0.25" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/empresa_item.xml" value="0.5" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/endereco_item.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/endereco_select.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_empresa.xml" value="0.2" />
@@ -137,6 +138,7 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_empresa_pedido.xml" value="0.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_empresa_pedido_endamento.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_empresa_pedido_finalizado.xml" value="0.2" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_usuario.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_usuario_home.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_usuario_pedido.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/fragment_usuario_pedido_andamento.xml" value="0.2" />
@@ -146,7 +148,7 @@
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/layout_status_pedido.xml" value="0.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/layout_ver_sacola.xml" value="1.25" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/pagamento_select.xml" value="0.2" />
-        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/produto_item.xml" value="0.2" />
+        <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/produto_item.xml" value="0.33" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/toobar_add.xml" value="0.2" />
         <entry key="..\:/Android/Cursos/desenvolvimentoAndroid2022/otaldomac/otaldomac/src/main/res/layout/toobar_carrinho.xml" value="0.2" />
       </map>
