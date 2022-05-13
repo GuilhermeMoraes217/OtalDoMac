@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,8 +33,6 @@ import br.labex.hambre.model.Pagamento;
 
 public class EmpresaRecebimentoActivity extends AppCompatActivity {
     private List<Pagamento> pagamentoList = new ArrayList<>();
-
-    private Empresa empresa;
 
     private Pagamento dinheiro = new Pagamento();
     private Pagamento dinheiroEntrega = new Pagamento();
@@ -51,130 +50,23 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
     private EditText edt_access_token;
 
     private ImageButton ib_salvar;
-    private Button btnSalvar;
     private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empresa_recebimento);
+
         iniciaComponentes();
 
         configCliques();
 
-        recuperaEmpresa();
-
         recuperaPagamentos();
     }
 
-    private void validaPagamentos() {
-
-    }
-
-    private void salvarPagamentos() {
-
-        if (cb_de.isChecked()) {
-            if (!pagamentoList.contains(dinheiro)) pagamentoList.add(dinheiro);
-        }
-
-        if (cb_dr.isChecked()) {
-            if (!pagamentoList.contains(dinheiroEntrega)) pagamentoList.add(dinheiroEntrega);
-        }
-
-        if (cb_cce.isChecked()) {
-            if (!pagamentoList.contains(cartaoCreditoEntrega))
-                pagamentoList.add(cartaoCreditoEntrega);
-        }
-
-        if (cb_ccr.isChecked()) {
-            if (!pagamentoList.contains(cartaoCreditoRetirada))
-                pagamentoList.add(cartaoCreditoRetirada);
-        }
-
-        if (cb_app.isChecked()) {
-            if (!pagamentoList.contains(cartaoCreditoApp)) pagamentoList.add(cartaoCreditoApp);
-        }
-
-        Pagamento.salvar(pagamentoList);
-    }
-
-    private void recuperaPagamentos() {
-        DatabaseReference pagamentosRef = FirebaseHelper.getDatabaseReference()
-                .child("recebimentos")
-                .child(FirebaseHelper.getIdFirebase());
-        pagamentosRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        Pagamento pagamento = ds.getValue(Pagamento.class);
-                        pagamentoList.add(pagamento);
-                    }
-
-                    configPagamentos();
-
-                } else {
-                    configSalvar(false);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
-    private void configPagamentos() {
-        for (Pagamento pagamento : pagamentoList) {
-            switch (pagamento.getDescricao()) {
-                case "Dinheiro na entrega":
-                    dinheiro = pagamento;
-                    cb_de.setChecked(dinheiro.getStatus());
-                    break;
-                case "Dinheiro na retirada":
-                    dinheiroEntrega = pagamento;
-                    cb_dr.setChecked(dinheiroEntrega.getStatus());
-                    break;
-                case "Cartão de crédito na entrega":
-                    cartaoCreditoEntrega = pagamento;
-                    cb_cce.setChecked(cartaoCreditoEntrega.getStatus());
-                    break;
-                case "Cartão de crédito na retirada":
-                    cartaoCreditoRetirada = pagamento;
-                    cb_ccr.setChecked(cartaoCreditoRetirada.getStatus());
-                    break;
-                case "Cartão de crédito pelo app":
-                    cartaoCreditoApp = pagamento;
-                    cb_app.setChecked(cartaoCreditoApp.getStatus());
-                    break;
-            }
-        }
-        configSalvar(false);
-    }
-
-    private void configSalvar(boolean progress) {
-        if (progress) {
-            progressBar.setVisibility(View.VISIBLE);
-            ib_salvar.setVisibility(View.GONE);
-        } else {
-            progressBar.setVisibility(View.GONE);
-            ib_salvar.setVisibility(View.VISIBLE);
-        }
-    }
-
-    private void configCliques() {
+    private void configCliques(){
         findViewById(R.id.ib_Voltar).setOnClickListener(v -> finish());
         ib_salvar.setOnClickListener(v -> salvarPagamentos());
-
-        btnSalvar.setOnClickListener(v -> {
-            if(empresa != null){
-                validaDados();
-            }else {
-                Toast.makeText(this, "Ainda estamos recuperando as informações da loja, aguarde...", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
         // Dinheiro na entrega
         cb_de.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -204,18 +96,54 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
         cb_app.setOnCheckedChangeListener((buttonView, isChecked) -> {
             cartaoCreditoApp.setDescricao("Cartão de crédito pelo app");
             cartaoCreditoApp.setStatus(isChecked);
+
         });
     }
 
-    private void recuperaEmpresa() {
-        DatabaseReference lojaRef = FirebaseHelper.getDatabaseReference()
-                .child("empresas");
-        lojaRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void salvarPagamentos() {
+
+        if(cb_de.isChecked()){
+            if(!pagamentoList.contains(dinheiro)) pagamentoList.add(dinheiro);
+
+        }
+
+        if(cb_dr.isChecked()){
+            if(!pagamentoList.contains(dinheiroEntrega)) pagamentoList.add(dinheiroEntrega);
+        }
+
+        if(cb_cce.isChecked()){
+            if(!pagamentoList.contains(cartaoCreditoEntrega)) pagamentoList.add(cartaoCreditoEntrega);
+        }
+
+        if(cb_ccr.isChecked()){
+            if(!pagamentoList.contains(cartaoCreditoRetirada)) pagamentoList.add(cartaoCreditoRetirada);
+        }
+
+        if(cb_app.isChecked()){
+            if(!pagamentoList.contains(cartaoCreditoApp)) pagamentoList.add(cartaoCreditoApp);
+        }
+
+        Pagamento.salvar(pagamentoList);
+    }
+
+    private void recuperaPagamentos(){
+        DatabaseReference pagamentosRef = FirebaseHelper.getDatabaseReference()
+                .child("recebimentos")
+                .child(FirebaseHelper.getIdFirebase());
+        pagamentosRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                empresa = snapshot.getValue(Empresa.class);
+                if(snapshot.exists()){
+                    for (DataSnapshot ds : snapshot.getChildren()){
+                        Pagamento pagamento = ds.getValue(Pagamento.class);
+                        pagamentoList.add(pagamento);
+                    }
 
-                configDados();
+                    configPagamentos();
+
+                }else {
+                    configSalvar(false);
+                }
             }
 
             @Override
@@ -225,47 +153,51 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
         });
     }
 
-    private void validaDados() {
-        String publicKey = edt_public_key.getText().toString().trim();
-        String acessToken = edt_access_token.getText().toString().trim();
+    private void configSalvar(boolean progress){
+        if(progress){
+            progressBar.setVisibility(View.VISIBLE);
+            ib_salvar.setVisibility(View.GONE);
+        }else {
+            progressBar.setVisibility(View.GONE);
+            ib_salvar.setVisibility(View.VISIBLE);
+        }
+    }
 
-        if (!publicKey.isEmpty()) {
-            if (!acessToken.isEmpty()) {
-
-                //ocultaTeclado();
-                ocultarTeclado();
-                empresa.setPublicKey(publicKey);
-                empresa.setAccessToken(acessToken);
-                empresa.salvar();
-
-
-            } else {
-                //binding.edtAcessToken.setError("Informe seu acess token.");
-                //binding.edtAcessToken.requestFocus();
+    private void configPagamentos() {
+        for (Pagamento pagamento : pagamentoList) {
+            switch (pagamento.getDescricao()){
+                case "Dinheiro na entrega":
+                    dinheiro = pagamento;
+                    cb_de.setChecked(dinheiro.getStatus());
+                    break;
+                case "Dinheiro na retirada":
+                    dinheiroEntrega = pagamento;
+                    cb_dr.setChecked(dinheiroEntrega.getStatus());
+                    break;
+                case "Cartão de crédito na entrega":
+                    cartaoCreditoEntrega = pagamento;
+                    cb_cce.setChecked(cartaoCreditoEntrega.getStatus());
+                    break;
+                case "Cartão de crédito na retirada":
+                    cartaoCreditoRetirada = pagamento;
+                    cb_ccr.setChecked(cartaoCreditoRetirada.getStatus());
+                    break;
+                case "Cartão de crédito pelo app":
+                    cartaoCreditoApp = pagamento;
+                    cb_app.setChecked(cartaoCreditoApp.getStatus());
+                    break;
             }
-        } else {
-            //binding.edtPublicKey.setError("Informe sua public key.");
-            //binding.edtPublicKey.requestFocus();
         }
+        configSalvar(false);
+    }
+
+    private void validaPagamentos(){
 
     }
 
-    private void configDados() {
-        if(empresa.getPublicKey() != null){
-            edt_public_key.setText(empresa.getPublicKey());
-        }
-
-        if(empresa.getAccessToken() != null){
-            edt_access_token.setText(empresa.getAccessToken());
-        }
-
-
-    }
-
-
-    private void iniciaComponentes() {
+    private void iniciaComponentes(){
         TextView text_toolbar = findViewById(R.id.txt_Toobar);
-        text_toolbar.setText("Formas de pagamento");
+        text_toolbar.setText("Recebimentos");
 
         cb_de = findViewById(R.id.cb_de);
         cb_dr = findViewById(R.id.cb_dr);
@@ -277,13 +209,6 @@ public class EmpresaRecebimentoActivity extends AppCompatActivity {
         edt_access_token = findViewById(R.id.edt_access_token);
 
         ib_salvar = findViewById(R.id.ib_Salvar);
-        btnSalvar = findViewById(R.id.btnSalvar);
         progressBar = findViewById(R.id.progressBar);
-    }
-
-    private void ocultarTeclado(){
-        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
-                btnSalvar.getWindowToken(), 0
-        );
     }
 }

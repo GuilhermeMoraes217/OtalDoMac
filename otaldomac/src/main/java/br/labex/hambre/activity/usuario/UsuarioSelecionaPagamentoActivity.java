@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -25,9 +26,7 @@ import br.labex.hambre.adapter.SelecionaPagamentoAdapter;
 import br.labex.hambre.helper.FirebaseHelper;
 import br.labex.hambre.model.Pagamento;
 
-public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity implements SelecionaPagamentoAdapter.OnClickListener {
-
-    private final List<Pagamento> pagamentoList = new ArrayList<>();
+public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity implements SelecionaPagamentoAdapter.OnClickListener {private final List<Pagamento> pagamentoList = new ArrayList<>();
     private SelecionaPagamentoAdapter selecionaPagamentoAdapter;
 
     private RecyclerView rv_pagamentos;
@@ -64,11 +63,13 @@ public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity impleme
         DatabaseReference pagamentosRef = FirebaseHelper.getDatabaseReference()
                 .child("recebimentos")
                 .child(empresaDAO.getEmpresa().getId());
-        pagamentosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        Query formaPagamento = pagamentosRef.orderByChild("status").equalTo(true);
+        formaPagamento.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
                     for (DataSnapshot ds : snapshot.getChildren()){
+
                         Pagamento pagamento = ds.getValue(Pagamento.class);
                         pagamentoList.add(pagamento);
                     }
@@ -79,6 +80,7 @@ public class UsuarioSelecionaPagamentoActivity extends AppCompatActivity impleme
 
                 progressBar.setVisibility(View.GONE);
                 selecionaPagamentoAdapter.notifyDataSetChanged();
+
             }
 
             @Override
