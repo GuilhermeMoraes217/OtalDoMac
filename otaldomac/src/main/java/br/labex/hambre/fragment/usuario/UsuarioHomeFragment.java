@@ -52,6 +52,7 @@ public class UsuarioHomeFragment extends Fragment implements EmpresasAdapter.OnC
 
     private ItemPedidoDAO itemPedidoDAO;
     private EmpresaDAO empresaDAO;
+    //git 1
 
 
     @Override
