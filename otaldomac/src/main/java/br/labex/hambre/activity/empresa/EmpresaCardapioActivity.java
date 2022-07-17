@@ -137,6 +137,8 @@ public class EmpresaCardapioActivity extends AppCompatActivity {
     }
 
     private void recuperaCategorias(){
+
+        //throw new RuntimeException("Test Crash"); // Force a crash
         for (String idCategoria : idsCategoriaList){
             DatabaseReference categoriasRef = FirebaseHelper.getDatabaseReference()
                     .child("categorias")
@@ -160,6 +162,8 @@ public class EmpresaCardapioActivity extends AppCompatActivity {
                 }
             });
         }
+
+
     }
 
     private void produtoPorCategoria(){
